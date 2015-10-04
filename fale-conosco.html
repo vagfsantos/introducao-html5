@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8"/>
+	<title>Tudo sobre Google Glass</title>
+	<link href="_css/estilo.css" rel="stylesheet"/>
+	<link href="_css/form.css" rel="stylesheet"/>
+	
+	<script type="text/javascript" src="_javascript/funcoes.js"></script>
+	
+	<script type="text/javascript">
+		function calc_total(){
+			var quantidade = parseInt(document.getElementById('cQtd').value);
+			
+			tot = quantidade*1500;
+			document.getElementById('cTot').value = tot;
+		}
+	</script>
+</head>
+
+<body>
+<div id="interface">
+
+
+<!-- /////////////// CABECALHO DO SITE /////////////// -->
+	<header id="cabecalho">
+	<hgroup>
+		<h1>Google Glass</h1>
+		<h2>A revolução do Google está chegando</h2>
+	</hgroup>
+
+<!-- %%%%%%%%%%%%%%%%%%%%%% MENUS  -->	
+	<img id="icone" src="_imagens/contato.png"/>
+		<nav id="menu">
+			<h1>Menu Principal</h1>
+				<ul>
+					<li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+						<a href="index.html">Home</a>
+					</li>
+					
+					<li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+						<a href="specs.html">Especificações</a>
+					</li>
+					
+					<li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+						<a href="fotos.html">Fotos</a>
+					</li>
+					
+					<li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+						<a href="multimidia.html">Multimídia</a>
+					</li>
+					
+					<li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')">
+						<a href="fale-conosco.html">Fale conosco</a>
+					</li>
+				</ul>
+		</nav>
+	</header>
+
+<section id="corpo-full">
+<article id="noticia-principal">
+	<header id="cabecalho-artigo">
+	<hgroup>
+		<h3>Fale Conosco > Contato</h3>
+		<h1>Formulário de Contato</h1>
+		<h2>por Gustavo Guanabara</h2>
+		<h3>Atualizado em 01/Maio/2013</h3>
+	</hgroup>
+	</header>
+
+<form method="post" id="fContato" action="mailto:santos.vagnerferreira@gmail.com" oninput="calc_total();">
+	<fieldset id="usuario">
+		<legend>Identificação do Usuário</legend>
+			
+			<p>Nome:
+			<input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome completo"/></p>
+			
+			<p>Senha:
+			<input type="password" name="tSenha" id="cSenha" placeholder="8 dígitos" size="10" maxlength="8"/></p>
+			
+			<p>E-mail:
+			<input type="email" name="tMail" id="cMail" placeholder="Digite seu email" size="30" maxlength="38" /></p>
+			
+			<fieldset id="sexo"><legend>
+			Sexo:</legend>
+				<input type="radio" name="tSexo" id="cSexo" checked/><label for="cSexo">
+				Masculino</label>
+				
+				</br>
+				
+				<input type="radio" name="tSexo" id="cSexo2"/><label for="cSexo2">
+				Feminino</label>
+				</fieldset>
+				
+			<p>Data de Nascimento:
+			<input type="date" name="tCalendario" placeholder="xx/xx/xxxx"i d="cCalendario"/></p>
+			
+	</fieldset>
+	
+	<fieldset id="endereco">
+		<legend>Endereço do Usuário</legend>
+    <p>Logradouro<input type="text" name="tEndereco" id="cEndereco" size="13" maxlength="80" placeholder="Rua, avenida..." /></p>
+	
+    <p>Número: <input type="number" name="tNumero" id="cNumero" min="1" max="100000" size="7" length="7"/></p>
+	
+    <p>Estado:
+	<select name="tEstado" id="cEstado">
+	<optgroup label="Região Sudeste">
+		<option value="RJ">Rio De Janeiro</option>
+		<option value="SP"selected>São Paulo </option>
+		<option value="MG">Minas Gerais</option>
+	</optgroup>
+	<optgroup label="Região Sul">
+		<option value="PR">Paraná</option>
+		<option value="RS">Rio Grande do Sul</option>
+		<option value="SC">Santa Catarina</option>
+	</optgroup>
+	</select>
+	</p>
+	
+    <p>Cidade:
+	<input type="text" name="tCidade" id="cCidade" size="20" maxlength="40" placeholder="Sua cidade" list="cidades" />
+	</p>
+	<datalist id="cidade">
+		<option value="Rio de Janeiro"></option>
+		<option value="Nova Iguaçu"></option>
+		<option value="Niterói"></option>
+		<option value="Belford Roxo"></option>
+	</datalist>
+	</fieldset>
+	
+	<fieldset id="mensagem">
+		<legend>Mensagem do Usuário</legend>
+    <p>Grau de Urgência: Min<input type="range" name="tUrgencia" id="cUrgencia" min="0" max="10" stepe="2"/>Max</p>
+    <p>Mensagem:<textarea name="tMenssagem" id="cMenssagem" cols="35" rows="5" placeholder="Sua menssagem aqui"></textarea></p>
+	</fieldset>
+	
+	<fieldset id="compra">
+		<legend>Quero um Google Glass</legend>
+		
+		<p><input type="checkbox" name="tPed" id="cPed"/>
+		Gostaria de adquirir um Google Glass quando disponível</p>
+		
+		<p>Cor:<input type="color" value="#ff3344" name="tCor" id="cCor"/></p>
+		<p>Quantidade:
+		<input type="number" name="tQtd" id="cQtd" min="0" max="5" value="0"/>
+		</p>
+		
+		<p>Preço Total: R$
+		<input type="text" name="tTot" id="cTot" placeholder="Total da compra" readonly/>
+		</p>
+	</fieldset>
+
+<input type="image" src="_imagens/botao-enviar.png" id="botaoEnviar"/>
+		</form>
+	</article>
+</section>
+
+<footer id="rodape">
+	<p>Copyright &copy; 2015 - by Vagner Ferreira </p>
+	<p>
+	<a href="http://www.facebook.com" target="_blank">Facebook</a> &nbsp;&nbsp;|&nbsp;&nbsp;
+	
+	<a href="http://www.twitter.com" target="_blank">Twitter</a></p>
+</footer>
+</div>
+</body>
+</html>
